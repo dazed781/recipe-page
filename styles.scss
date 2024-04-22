@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$mainBg: hsl(30, 54%, 90%);
+$recipeBg: hsl(0, 0%, 100%);
+$headerColor: hsl(24, 5%, 18%);
+$subheaderColor: hsl(14, 45%, 36%);
+$textColor: hsl(30, 10%, 34%);
+$border: 1px solid hsl(30, 18%, 87%);
+
+$prepBg: hsl(330, 100%, 98%);
+$prepHeader: hsl(332, 51%, 32%);
+
+body {
+    background: $mainBg;
+}
+
+h1,
+h2 {
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+}
+
+p,
+li {
+    font-size: 1rem;
+    color: $textColor;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.5;
+}
+
+ul,
+ol {
+    margin-left: 1.35rem;
+}
+
+.recipe {
+    width: min(90%, 736px);
+    margin: 7.675rem 0;
+    padding: 2.5rem 2.5rem 1.6rem;
+    border-radius: 1.5rem;
+    background: $recipeBg;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    .header__img {
+        width: 100%;
+        margin-bottom: 2.3rem;
+        border-radius: 0.75rem;
+    }
+
+    .content {
+        padding: 0;
+
+        h1 {
+            margin-bottom: 1.45rem;
+            font-size: clamp(2.25rem, 4.9vw, 2.5rem);
+            color: $headerColor;
+            line-height: 1;
+        }
+    
+        .prep-time {
+            border-radius: 1rem;
+            background: $prepBg;
+            margin-top: 2rem;
+            padding: 1.55rem 1.75rem;
+    
+            .prep-time__header {
+                margin-bottom: 0.9rem;
+                font-size: 1.25rem;
+                color: $prepHeader;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 600;
+            }
+    
+            li {
+                &::marker {
+                    color: $prepHeader;
+                }
+            }
+        }
+    
+        .main-info {
+            margin-top: 1.7rem;
+    
+            article {
+                padding-bottom: 1.75rem;
+                border-bottom: $border;
+    
+                &:last-child {
+                    border-bottom: 0;
+                    padding-bottom: 0;
+                }
+    
+                li {
+                    &::marker {
+                        color: $subheaderColor;
+                        font-weight: 600;
+                    }
+                }
+            }
+    
+            .instructions,
+            .nutrition {
+                padding-top: 1.7rem;
+            }
+    
+            h2 {
+                margin-bottom: 1.125rem;
+                font-size: 1.75rem;
+                color: $subheaderColor;
+            }
+    
+            .nutrition {
+                p {
+                    margin-bottom: 0.65rem;
+                }
+    
+                table {
+                    width: 100%;
+                    font-family: 'Outfit', sans-serif;
+    
+                    tr {
+                        padding: 0.845rem 0;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        border-bottom: $border;
+    
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+    
+                    .name {
+                        color: $textColor;
+                        text-indent: 1.875rem;
+                    }
+    
+                    .value {
+                        color: $subheaderColor;
+                        font-weight: 700;
+                        text-indent: 0.5rem;
+                    }
+                }
+            }
+        }
+    
+        li {
+            margin-top: 0.5rem;
+            padding-left: 1.15rem;
+            &:last-child {
+                margin-bottom: 0.15rem;
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .recipe {
+        width: 100%;
+        margin: 0;
+        padding: 0 0 1.75rem;
+        border-radius: 0;
+
+        .header__img {
+            margin-bottom: 2.25rem;
+            border-radius: 0;
+        }
+
+        .content {
+            padding: 0 2rem;
+
+            .prep-time {
+                padding: 1.3rem 1.5rem;
+            }
+
+            .nutrition {
+                p {
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
+}
